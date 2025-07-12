@@ -401,10 +401,17 @@ public class MetaTileEntityMachineRecipeLoader {
             var hatch = ENERGY_INPUT_HATCH_4A[tier];
             if (hatch == null) continue;
 
+            MachineDefinition transformer;
+            if (tier == (GTCEuAPI.isHighTier() ? MAX : UHV)) {
+                transformer = HI_AMP_TRANSFORMER_4A[tier - 1];
+            } else {
+                transformer = TRANSFORMER[tier];
+            }
+
             ASSEMBLER_RECIPES.recipeBuilder("energy_hatch_4a_" + GTValues.VN[tier].toLowerCase(Locale.ROOT))
                     .inputItems(ENERGY_INPUT_HATCH[tier])
-                    .inputItems(GTCraftingComponents.WIRE_QUAD.get(tier), 2)
-                    .inputItems(GTCraftingComponents.PLATE.get(tier), 2)
+                    .inputItems(transformer)
+                    .inputFluids(SolderingAlloy, 144)
                     .outputItems(hatch)
                     .duration(100).EUt(VA[tier])
                     .addMaterialInfo(true).save(provider);
@@ -417,16 +424,15 @@ public class MetaTileEntityMachineRecipeLoader {
 
             MachineDefinition transformer;
             if (tier == (GTCEuAPI.isHighTier() ? MAX : UHV)) {
-                transformer = HI_AMP_TRANSFORMER_4A[tier - 1];
+                transformer = POWER_TRANSFORMER[tier - 1];
             } else {
-                transformer = TRANSFORMER[tier];
+                transformer = HI_AMP_TRANSFORMER_4A[tier];
             }
 
             ASSEMBLER_RECIPES.recipeBuilder("energy_hatch_16a_" + GTValues.VN[tier].toLowerCase(Locale.ROOT))
                     .inputItems(transformer)
                     .inputItems(ENERGY_INPUT_HATCH_4A[tier])
-                    .inputItems(GTCraftingComponents.WIRE_OCT.get(tier), 2)
-                    .inputItems(GTCraftingComponents.PLATE.get(tier), 4)
+                    .inputFluids(SolderingAlloy, 288)
                     .outputItems(hatch)
                     .duration(200).EUt(VA[tier])
                     .addMaterialInfo(true).save(provider);
@@ -438,17 +444,19 @@ public class MetaTileEntityMachineRecipeLoader {
             if (hatch == null) continue;
 
             MachineDefinition transformer;
+            int transformer_count;
             if (tier == (GTCEuAPI.isHighTier() ? MAX : UHV)) {
                 transformer = POWER_TRANSFORMER[tier - 1];
+                transformer_count = 4;
             } else {
                 transformer = POWER_TRANSFORMER[tier];
+                transformer_count = 1;
             }
 
             ASSEMBLER_RECIPES.recipeBuilder("substation_energy_hatch_" + GTValues.VN[tier].toLowerCase(Locale.ROOT))
-                    .inputItems(transformer)
+                    .inputItems(transformer, transformer_count)
                     .inputItems(ENERGY_INPUT_HATCH_16A[tier])
-                    .inputItems(GTCraftingComponents.WIRE_HEX.get(tier), 2)
-                    .inputItems(GTCraftingComponents.PLATE.get(tier), 6)
+                    .inputFluids(SolderingAlloy, 576)
                     .outputItems(hatch)
                     .duration(400).EUt(VA[tier])
                     .addMaterialInfo(true).save(provider);
