@@ -411,7 +411,7 @@ public class MetaTileEntityMachineRecipeLoader {
             ASSEMBLER_RECIPES.recipeBuilder("energy_hatch_4a_" + GTValues.VN[tier].toLowerCase(Locale.ROOT))
                     .inputItems(ENERGY_INPUT_HATCH[tier])
                     .inputItems(transformer)
-                    .inputFluids(SolderingAlloy, 144)
+                    .inputFluids(SodiumPotassium, 1000 + 2000 * (tier + 1))
                     .outputItems(hatch)
                     .duration(100).EUt(VA[tier])
                     .addMaterialInfo(true).save(provider);
@@ -432,7 +432,7 @@ public class MetaTileEntityMachineRecipeLoader {
             ASSEMBLER_RECIPES.recipeBuilder("energy_hatch_16a_" + GTValues.VN[tier].toLowerCase(Locale.ROOT))
                     .inputItems(transformer)
                     .inputItems(ENERGY_INPUT_HATCH_4A[tier])
-                    .inputFluids(SolderingAlloy, 288)
+                    .inputFluids(SodiumPotassium, 4000 + 2000 * (tier + 1))
                     .outputItems(hatch)
                     .duration(200).EUt(VA[tier])
                     .addMaterialInfo(true).save(provider);
@@ -456,7 +456,7 @@ public class MetaTileEntityMachineRecipeLoader {
             ASSEMBLER_RECIPES.recipeBuilder("substation_energy_hatch_" + GTValues.VN[tier].toLowerCase(Locale.ROOT))
                     .inputItems(transformer, transformer_count)
                     .inputItems(ENERGY_INPUT_HATCH_16A[tier])
-                    .inputFluids(SolderingAlloy, 576)
+                    .inputFluids(SodiumPotassium, 16000 + 2000 * (tier + 1))
                     .outputItems(hatch)
                     .duration(400).EUt(VA[tier])
                     .addMaterialInfo(true).save(provider);
