@@ -444,17 +444,17 @@ public class MetaTileEntityMachineRecipeLoader {
             if (hatch == null) continue;
 
             MachineDefinition transformer;
-            int transformer_count;
+            int transformerCount;
             if (tier == (GTCEuAPI.isHighTier() ? MAX : UHV)) {
                 transformer = POWER_TRANSFORMER[tier - 1];
-                transformer_count = 4;
+                transformerCount = 4;
             } else {
                 transformer = POWER_TRANSFORMER[tier];
-                transformer_count = 1;
+                transformerCount = 1;
             }
 
             ASSEMBLER_RECIPES.recipeBuilder("substation_energy_hatch_" + GTValues.VN[tier].toLowerCase(Locale.ROOT))
-                    .inputItems(transformer, transformer_count)
+                    .inputItems(transformer, transformerCount)
                     .inputItems(ENERGY_INPUT_HATCH_16A[tier])
                     .inputFluids(SodiumPotassium, 16000 + 2000 * (tier + 1))
                     .outputItems(hatch)
