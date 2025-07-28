@@ -214,6 +214,11 @@ public class MetaMachineBlockEntity extends BlockEntity implements IMachineBlock
                 return GTCapability.CAPABILITY_MAINTENANCE_MACHINE.orEmpty(cap,
                         LazyOptional.of(() -> maintenanceMachine));
             }
+        } else if (cap == GTCapability.CAPABILITY_LARGE_TURBINE) {
+            if (machine instanceof ILargeTurbine largeTurbine) {
+                return GTCapability.CAPABILITY_LARGE_TURBINE.orEmpty(cap,
+                        LazyOptional.of(() -> largeTurbine));
+            }
         } else if (cap == ForgeCapabilities.ITEM_HANDLER) {
             var handler = machine.getItemHandlerCap(side, true);
             if (handler != null) {
