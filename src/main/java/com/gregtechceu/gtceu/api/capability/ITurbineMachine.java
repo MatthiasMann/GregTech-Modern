@@ -3,7 +3,7 @@ package com.gregtechceu.gtceu.api.capability;
 /**
  * For the large gas turbine / large plasma turbine
  */
-public interface ILargeTurbine extends IWorkable {
+public interface ITurbineMachine extends IWorkable {
 
     /**
      * @return true if the machine has a roter installed

@@ -16,8 +16,6 @@ public class GTCapability {
     public static final Capability<IEnergyInfoProvider> CAPABILITY_ENERGY_INFO_PROVIDER = CapabilityManager
             .get(new CapabilityToken<>() {});
     public static final Capability<ICoverable> CAPABILITY_COVERABLE = CapabilityManager.get(new CapabilityToken<>() {});
-    public static final Capability<ILargeTurbine> CAPABILITY_LARGE_TURBINE = CapabilityManager
-            .get(new CapabilityToken<>() {});
     public static final Capability<IToolable> CAPABILITY_TOOLABLE = CapabilityManager.get(new CapabilityToken<>() {});
     public static final Capability<IWorkable> CAPABILITY_WORKABLE = CapabilityManager.get(new CapabilityToken<>() {});
     public static final Capability<IControllable> CAPABILITY_CONTROLLABLE = CapabilityManager
@@ -29,6 +27,8 @@ public class GTCapability {
     public static final Capability<ICleanroomReceiver> CAPABILITY_CLEANROOM_RECEIVER = CapabilityManager
             .get(new CapabilityToken<>() {});
     public static final Capability<IMaintenanceMachine> CAPABILITY_MAINTENANCE_MACHINE = CapabilityManager
+            .get(new CapabilityToken<>() {});
+    public static final Capability<ITurbineMachine> CAPABILITY_TURBINE_MACHINE = CapabilityManager
             .get(new CapabilityToken<>() {});
     public static final Capability<ILaserContainer> CAPABILITY_LASER = CapabilityManager
             .get(new CapabilityToken<>() {});
@@ -46,7 +46,6 @@ public class GTCapability {
         event.register(IEnergyContainer.class);
         event.register(IEnergyInfoProvider.class);
         event.register(ICoverable.class);
-        event.register(ILargeTurbine.class);
         event.register(IToolable.class);
         event.register(IWorkable.class);
         event.register(IControllable.class);
@@ -54,6 +53,7 @@ public class GTCapability {
         event.register(IElectricItem.class);
         event.register(ICleanroomReceiver.class);
         event.register(IMaintenanceMachine.class);
+        event.register(ITurbineMachine.class);
         event.register(ILaserContainer.class);
         event.register(IOpticalComputationProvider.class);
         event.register(IDataAccessHatch.class);
